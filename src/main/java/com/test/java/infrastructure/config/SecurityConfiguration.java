@@ -31,7 +31,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(csrf -> csrf.disable()).authorizeHttpRequests(
-                        aut -> aut
+                        aut -> aut.requestMatchers("/encrypt/**").authenticated()
                                 .requestMatchers("/external-api/pokeapi/**").authenticated()
                                 .requestMatchers("/api/trainers/**").authenticated()
                                 .requestMatchers("/auth").permitAll())

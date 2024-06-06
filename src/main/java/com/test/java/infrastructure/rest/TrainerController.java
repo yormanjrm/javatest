@@ -37,7 +37,7 @@ public class TrainerController {
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             ApiResponseDTO<Object> response = new ApiResponseDTO<>(500, true, e.getMessage(), null);
-            return new ResponseEntity<>(response, HttpStatus.OK);
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

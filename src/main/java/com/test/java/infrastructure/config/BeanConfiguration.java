@@ -1,9 +1,11 @@
 package com.test.java.infrastructure.config;
 
 import com.test.java.application.AuthService;
+import com.test.java.application.EncryptService;
 import com.test.java.application.PokemonService;
 import com.test.java.application.TrainerService;
 import com.test.java.domain.ports.IAuthRepository;
+import com.test.java.domain.ports.IEncryptRepository;
 import com.test.java.domain.ports.IPokemonRepository;
 import com.test.java.domain.ports.ITrainerRepository;
 import org.springframework.context.annotation.Bean;
@@ -30,5 +32,10 @@ public class BeanConfiguration {
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
+    }
+
+    @Bean
+    public EncryptService encryptService(IEncryptRepository iEncryptRepository) {
+        return new EncryptService(iEncryptRepository);
     }
 }
