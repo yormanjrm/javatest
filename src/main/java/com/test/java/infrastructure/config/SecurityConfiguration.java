@@ -31,7 +31,8 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(csrf -> csrf.disable()).authorizeHttpRequests(
-                        aut -> aut.requestMatchers("/auth").permitAll())
+                        aut -> aut.requestMatchers("/api/trainers/**").authenticated()
+                                .requestMatchers("/auth").permitAll())
                 .addFilterAfter(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(exceptionHandling ->
                         exceptionHandling.authenticationEntryPoint((request, response, authException) -> {

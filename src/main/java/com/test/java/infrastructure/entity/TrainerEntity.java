@@ -9,12 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "credentials")
-public class UserEntity {
+@Table(name = "trainers")
+public class TrainerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String email;
-    private String password;
+    private String main_pokemon;
 }
