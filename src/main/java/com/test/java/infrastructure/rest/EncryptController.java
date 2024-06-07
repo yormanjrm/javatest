@@ -27,7 +27,7 @@ public class EncryptController {
             }
             String encrypted = encryptService.encrypt(input);
             EncryptedDTO<String> encryptedDTO = new EncryptedDTO<>(input, encrypted);
-            ApiResponseDTO<Object> response = new ApiResponseDTO<>(200, false, "entry successfully encrypted", encryptedDTO);
+            ApiResponseDTO<Object> response = new ApiResponseDTO<>(200, false, "Entry successfully encrypted", encryptedDTO);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             ApiResponseDTO<Object> response = new ApiResponseDTO<>(400, true, e.getMessage(), null);

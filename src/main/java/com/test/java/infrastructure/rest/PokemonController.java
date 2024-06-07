@@ -26,7 +26,7 @@ public class PokemonController {
             if (name == null || name.trim().isEmpty()) {
                 throw new IllegalArgumentException("Pokemon name must not be empty");
             }
-            Pokemon pokemon = pokemonService.findByName(name);
+            Pokemon pokemon = pokemonService.findByName(name.toLowerCase());
             ApiResponseDTO<Object> response = new ApiResponseDTO<>(200, false, "Pokemon found", pokemon);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (PokemonNotFoundException e) {
