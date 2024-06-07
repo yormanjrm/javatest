@@ -10,7 +10,7 @@ public class TrainerService {
         this.iTrainerRepository = iTrainerRepository;
     }
 
-    public Iterable<Trainer> findByNameOrMainPokemon(String filterText){
+    public Iterable<Trainer> findByNameOrMainPokemon(String filterText) {
         return iTrainerRepository.findByNameOrMainPokemon(filterText);
     }
 }
